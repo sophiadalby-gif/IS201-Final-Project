@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Whimsical Christmas</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+      font-weight: 300;
+      background: #e9f5ff;
+      color: #2c3a47;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 40px;
+      background: #ffffff;
+      border-radius: 20px;
+      border: 2px solid #bcd9f3;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      position: relative;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+      font-weight: 300;
+      color: #0d2e57;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-top: 40px;
+      letter-spacing: 0.5px;
+      font-weight: 300;
+      color: #35506b;
+    }
+
+    p, li {
+      font-size: 1.2rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li::before {
+      content: "❄️ ";
+    }
+
+    .countdown {
+      font-size: 2.5rem;
+      margin-top: 20px;
+      color: #264057;
+      font-weight: 300;
+    }
+
+    /* Snowflake decorations */
+    .snowflake {
+      position: absolute;
+      width: 35px;
+      opacity: 0.6;
+    }
+
+    .s1 { top: -20px; left: -20px; }
+    .s2 { top: -20px; right: -20px; }
+    .s3 { bottom: -20px; left: -20px; }
+    .s4 { bottom: -20px; right: -20px; }
+  .border-snowflake { position:absolute; width:30px; opacity:0.5; }
+    .b1 { top:10px; left:50%; }
+    .b2 { bottom:10px; left:50%; }
+    </style>
+</head>
+<body>
+  <div class="container">
+    <img class="border-snowflake b1" src="https://cdn-icons-png.flaticon.com/512/4151/4151022.png" />
+    <img class="border-snowflake b2" src="https://cdn-icons-png.flaticon.com/512/4151/4151022.png" />
+    <img class="snowflake s1" src="https://cdn-icons-png.flaticon.com/512/4151/4151022.png" />
+    <img class="snowflake s2" src="https://cdn-icons-png.flaticon.com/512/4151/4151022.png" />
+    <img class="snowflake s3" src="https://cdn-icons-png.flaticon.com/512/4151/4151022.png" />
+    <img class="snowflake s4" src="https://cdn-icons-png.flaticon.com/512/4151/4151022.png" />
+
+    <h1>Whimsical Christmas Wonderland</h1>
+    <img src="https://cdn-icons-png.flaticon.com/512/2541/2541441.png" style="width:80px; margin:20px;" />
+    <img src="https://cdn-icons-png.flaticon.com/512/2541/2541441.png" style="width:80px; margin:20px;" />
+    <p>Celebrate the magic, sparkle, and quiet beauty of Christmastime. Cozy lights, soft snow, and warm traditions make this season unforgettable.</p>
+
+    <h2>Countdown to Christmas</h2>
+    <div class="countdown" id="countdown"></div>
+
+    <h2>Fun Holiday Traditions</h2>
+    <ul>
+      <li>Make homemade hot chocolate and add unique toppings like crushed candy canes or cinnamon sticks.</li>
+      <li>Drive around to look at Christmas lights while listening to your favorite holiday playlist.</li>
+      <li>Have a Christmas pajama night and watch nostalgic holiday movies.</li>
+      <li>Decorate sugar cookies and deliver them to neighbors or friends.</li>
+      <li>Write a letter to your future self to open next Christmas.</li>
+      <li>Read the Nativity story together on Christmas Eve.</li>
+    </ul>
+
+    <img src="https://cdn-icons-png.flaticon.com/512/1506/1506766.png" style="width:140px; margin-top:40px;" />
+  </div>
+
+  <script>
+    function updateCountdown() {
+      const today = new Date();
+      const christmas = new Date(today.getFullYear(), 11, 25);
+      const diff = christmas - today;
+
+      if (diff < 0) {
+        document.getElementById('countdown').innerHTML = "Merry Christmas!";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById('countdown').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+</body>
+</html>
+
